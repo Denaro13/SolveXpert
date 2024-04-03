@@ -52,8 +52,8 @@ const Navbar = () => {
       <div
         className={
           sidebar
-            ? "fixed top-0 right-0 w-[100%]  h-screen bg-gray-200/90 z-10 duration-700 overflow-y-scroll"
-            : "fixed top-0 right-[-100%] w-[100%] h-screen bg-gray-200/90 z-10 duration-500 overflow-y-scroll delay-200"
+            ? "fixed top-0 right-0 w-[100%]  h-screen bg-black/10 z-10 duration-700 overflow-y-scroll"
+            : "fixed top-0 right-[-100%] w-[100%] h-screen bg-black/10 z-10 duration-500 overflow-y-scroll delay-200"
         }
       >
         <aside

@@ -83,6 +83,7 @@ const QuestionSolution = () => {
 
   const renderStepContent = (step) => {
     const parts = step.content.split(/(\$[^$]+\$|\$\$[^$]+\$\$|\n)/g) || [];
+
     return parts.map((part, index) => {
       if (part.startsWith("$$") && part.endsWith("$$")) {
         return (
@@ -109,24 +110,6 @@ const QuestionSolution = () => {
       }
     });
   };
-  // const renderStepContent = (step) => {
-  //   const parts = step.content.split(/(\$[^$]+\$|\$\$[^$]+\$\$|\n)/g) || [];
-  //   return parts.map((part, index) => {
-  //     if (part.startsWith("$$") && part.endsWith("$$")) {
-  //       return (
-  //         <BlockMath key={index} math={part.substring(2, part.length - 2)} />
-  //       );
-  //     } else if (part.startsWith("$") && part.endsWith("$")) {
-  //       return (
-  //         <InlineMath key={index} math={part.substring(1, part.length - 1)} />
-  //       );
-  //     } else if (part === "\n") {
-  //       return <br key={index} />;
-  //     } else {
-  //       return part;
-  //     }
-  //   });
-  // };
 
   return (
     <div className="flex gap-4 w-[98%] h-[calc(100vh-4rem)] mx-auto pt-4">

@@ -11,13 +11,13 @@ export const navLinks = [
   },
   {
     id: 3,
-    name: "tasks",
+    name: "provide solution",
     path: "/solve",
   },
   {
     id: 4,
-    name: "about",
-    path: "/about",
+    name: "solution center",
+    path: "/solution",
   },
 ];
 

@@ -8,12 +8,6 @@ const SolutionPreviewer = ({
   show,
   handleSolutionContent,
 }) => {
-  // const [show, setShow] = useState(false);
-
-  // const handleSolutionContent = () => {
-  //   setShow(!show);
-  // };
-
   const renderSolutionContent = () => {
     const solutionStep = steps.find((step) => step.isSolution);
     if (solutionStep) {
@@ -62,13 +56,13 @@ const SolutionPreviewer = ({
         <div className="mt-12 w-[95%] mx-auto">
           <h1 className="text-4xl text-white font-bold mb-4">Solutions</h1>
           <div className="bg-white text-black flex flex-col rounded-2xl px-4 py-2">
-            <h4 className="uppercase text-gray-800 text-xs ">
+            <h4 className="uppercase text-gray-400 text-xs font-bold">
               solveXpert solution
             </h4>
-            <div className="text-black my-3">{renderSolutionContent()}</div>
+            <div className="text-black my-4">{renderSolutionContent()}</div>
             <button
               onClick={handleSolutionContent}
-              className="bg-red-700 w-[70%] text-white mx-auto mt-2 p-2 rounded-full capitalize flex items-center justify-center gap-2"
+              className="bg-red-700 w-[70%] text-white mx-auto my-3 p-3 rounded-full capitalize flex items-center justify-center gap-2"
             >
               Show solving steps <BsArrowRight size={20} />
             </button>

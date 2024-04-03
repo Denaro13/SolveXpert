@@ -63,7 +63,6 @@ const MathSolution = ({
             <div>
               <textarea
                 rows={4}
-                // placeholder="Enter step content"
                 placeholder={`Enter ${
                   step.isSolution ? "solution" : "step"
                 } content`}

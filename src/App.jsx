@@ -7,6 +7,8 @@ import {
   Task,
   QuestionSolution,
   Learning,
+  Solution,
+  ApprovedSolution,
 } from "./pages";
 
 function App() {
@@ -21,8 +23,12 @@ function App() {
           element: <Landing />,
         },
         {
-          path: "/about",
-          element: <div>About Page</div>,
+          path: "/solution",
+          element: <Solution />,
+        },
+        {
+          path: "/solution/:id",
+          element: <ApprovedSolution />,
         },
         {
           path: "/solve",
@@ -50,7 +56,7 @@ function App() {
     },
   ]);
   return (
-    <main className="bg-slate-100 h-screen">
+    <main className="bg-slate-200 min-h-screen">
       <RouterProvider router={router} />
     </main>
   );
