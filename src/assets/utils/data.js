@@ -1,7 +1,8 @@
 export const contents = [
   {
     topic: "indices",
-    overview: "lorjdkdkjdkjd idkjkjkdie djkdkdjded kddkjdkjdjd ",
+    overview:
+      "indices is a branch of algebra that deals with the simplification of numbers expressed in exponents form ",
     subtopics: [
       {
         id: 1,

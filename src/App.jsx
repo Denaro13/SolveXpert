@@ -10,8 +10,10 @@ import {
   Solution,
   ApprovedSolution,
 } from "./pages";
+import TopicContent from "./pages/TopicContent";
 
 function App() {
+  const user = true;
   const router = createBrowserRouter([
     {
       path: "/",
@@ -44,17 +46,16 @@ function App() {
           children: [
             {
               path: "/learning:topic",
-              element: (
-                <div className="w-[98%] mx-auto bg-red-400 mt-10">
-                  About Page
-                </div>
-              ),
+              element: <TopicContent />,
             },
           ],
         },
       ],
     },
   ]);
+  if (!user) {
+    return <Landing />;
+  }
   return (
     <main className="bg-slate-200 min-h-screen">
       <RouterProvider router={router} />

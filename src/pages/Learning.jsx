@@ -25,17 +25,12 @@ const Learning = () => {
             );
           })}
         </header>
-        <div className="flex">
-          {/* <div
-            className={
-              sidebar
-                ? " mt-4 pl-4 flex flex-col gap-4 capitalize text-xl w-[17rem] bg-slate-100 h-[calc(100vh-6.5rem)] shadow-lg"
-                : "hidden md:flex md:flex-col gap-4 capitalize mt-4 pl-4 text-xl w-[17rem] bg-slate-100 h-[calc(100vh-6.5rem)] shadow-lg z-10 md:z-0"
-            }
-          ></div> */}
-          <div className="w-full">
-            <Outlet />
-          </div>
+        <div className="w-[90%] mx-auto mt-10">
+          <h1 className="text-3xl mb-4">Learning Center</h1>
+          <p>
+            The learning center contains resources created by our experts to
+            help you understand the concepts of mathematics.
+          </p>
         </div>
       </div>
     );
