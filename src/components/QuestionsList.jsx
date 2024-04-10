@@ -1,6 +1,5 @@
 import QuestionCard from "./QuestionCard";
 import { questions } from "../assets/utils/Questions";
-// import { Link } from "react-router-dom";
 
 const QuestionsList = () => {
   const filteredQuestions = questions.filter(

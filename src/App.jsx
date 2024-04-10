@@ -11,6 +11,7 @@ import {
   ApprovedSolution,
 } from "./pages";
 import TopicContent from "./pages/TopicContent";
+// import { useGlobalContext } from "./contex/GlobalContex";
 
 function App() {
   const user = true;

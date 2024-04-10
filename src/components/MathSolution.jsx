@@ -1,17 +1,19 @@
 import { FiPlusSquare } from "react-icons/fi";
 import { TiTimes } from "react-icons/ti";
 import { RiImageAddFill } from "react-icons/ri";
+import { useGlobalContext } from "../contex/GlobalContex";
 
-const MathSolution = ({
-  addStep,
-  removeStep,
-  handleInputChange,
-  steps,
-  handleImageUpload,
-  setShow,
-}) => {
+const MathSolution = () => {
+  const {
+    addStep,
+    removeStep,
+    handleInputChange,
+    steps,
+    handleImageUpload,
+    setShow,
+  } = useGlobalContext();
   return (
-    <div className=" bg-white w-[50%] h-[calc(100vh-6rem)] overflow-x-hidden pt-5 pb-2 px-3 shadow-xl ">
+    <div className=" bg-white w-[60%] h-[calc(100vh-10rem)] overflow-x-hidden pt-5 pb-2 px-3 shadow-xl ">
       <div className="bg-white shadow-md h-10 mx-auto flex items-center px-2 mb-4 rounded-md ">
         <button onClick={addStep}>
           <FiPlusSquare size={30} />
@@ -27,7 +29,6 @@ const MathSolution = ({
                   : "bg-black text-white h-10 flex items-center justify-between rounded-t-md px-4"
               }
             >
-              {/* <h3 className="uppercase font-bold">Step {index + 1}</h3> */}
               <h3 className="uppercase font-bold">
                 {step.isSolution ? "solution" : `step ${index + 1}`}
               </h3>
@@ -55,7 +56,6 @@ const MathSolution = ({
                     onChange={(e) => handleImageUpload(e, index)}
                     className="hidden"
                   />
-                  {/* <BiUpload size={30} className="cursor-pointer" /> */}
                   <RiImageAddFill size={20} className="cursor-pointer" />
                 </label>
               </div>

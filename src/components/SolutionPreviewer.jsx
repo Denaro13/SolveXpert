@@ -1,55 +1,21 @@
-// import { useState } from "react";
-import { InlineMath, BlockMath } from "react-katex";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
+import { useGlobalContext } from "../contex/GlobalContex";
 
-const SolutionPreviewer = ({
-  steps,
-  renderStepContent,
-  show,
-  handleSolutionContent,
-}) => {
-  const renderSolutionContent = () => {
-    const solutionStep = steps.find((step) => step.isSolution);
-    if (solutionStep) {
-      // renderStepContent(step);
-      const parts =
-        solutionStep.content.split(/(\$[^$]+\$|\$\$[^$]+\$\$|\n)/g) || [];
-      return parts.map((part, index) => {
-        if (part.startsWith("$$") && part.endsWith("$$")) {
-          return (
-            <BlockMath key={index} math={part.substring(2, part.length - 2)} />
-          );
-        } else if (part.startsWith("$") && part.endsWith("$")) {
-          return (
-            <InlineMath key={index} math={part.substring(1, part.length - 1)} />
-          );
-        } else if (part.startsWith("![Image](") && part.endsWith(")")) {
-          const imageUrl = part.substring(9, part.length - 1); // Extract the image URL
-          return (
-            <img
-              key={index}
-              src={imageUrl}
-              alt="Image"
-              className="h-[20rem] w-full object-center"
-            />
-          );
-        } else if (part === "\n") {
-          return <br key={index} />;
-        } else {
-          return part;
-        }
-      });
-    } else {
-      return <div>No solution step found</div>;
-    }
-  };
+const SolutionPreviewer = () => {
+  const {
+    steps,
+    renderStepContent,
+    show,
+    handleSolutionContent,
+    renderSolutionContent,
+  } = useGlobalContext();
 
   return (
     <div
       className={
         show
-          ? " w-[25%] h-[75vh] overflow-x-hidden rounded-3xl border-black border-[1rem]"
-          : " bg-gray-500 w-[25%] h-[75vh] overflow-x-hidden rounded-3xl border-black border-[1rem]"
+          ? " w-[30rem] h-[75vh] overflow-x-hidden rounded-3xl border-black border-[1rem]"
+          : " bg-gray-500 w-[30rem] h-[75vh] overflow-x-hidden rounded-3xl border-black border-[1rem]"
       }
     >
       {!show && (
