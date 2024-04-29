@@ -8,6 +8,9 @@ const app = express();
 // connectDB
 const connectDB = require("./db/connect");
 
+// extra packages
+const fileUpload = require("express-fileupload");
+
 // routers
 const questionRouter = require("./routes/questionRoutes");
 
@@ -16,6 +19,8 @@ const notFoundMiddleWare = require("./middleware/not-found");
 const errorHandlerMiddleWare = require("./middleware/error-handler");
 
 app.use(express.json());
+app.use(express.static("./public"));
+app.use(fileUpload());
 
 app.get("/", (req, res) => {
   res.send("solveXpert api");

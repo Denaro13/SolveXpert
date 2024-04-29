@@ -15,6 +15,7 @@ const QuestionSchema = mongoose.Schema(
     image: {
       type: String,
       required: [true, "Please provide question image"],
+      default: "uploads/math01.jpeg",
     },
     solution: {
       type: String,
