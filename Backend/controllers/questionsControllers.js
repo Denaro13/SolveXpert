@@ -1,7 +1,8 @@
 const Question = require("../models/Question");
 const { StatusCodes } = require("http-status-codes");
 const CustomError = require("../errors");
-const path = require("path");
+const cloudinary = require("cloudinary").v2;
+const fs = require("fs");
 
 const createQuestion = async (req, res) => {
   const question = await Question.create(req.body);
@@ -46,29 +47,15 @@ const deleteQuestion = async (req, res) => {
   res.status(StatusCodes.OK).json({ msg: "Success! Question Removed" });
 };
 const uploadImage = async (req, res) => {
-  if (!req.files) {
-    throw new CustomError.BadRequestError("No file uploaded");
-  }
-  const questionImage = req.files.image;
-  if (!questionImage.mimetype.startsWith("image")) {
-    throw new CustomError.BadRequestError("Please upload an image");
-  }
-
-  const maxSize = 1024 * 1024;
-  if (questionImage.size > maxSize) {
-    throw new CustomError.BadRequestError(
-      "Please upload an image less than 1MB"
-    );
-  }
-
-  const imagePath = path.join(
-    __dirname,
-    "../public/uploads/" + `${questionImage.name}`
+  const result = await cloudinary.uploader.upload(
+    req.files.image.tempFilePath,
+    {
+      use_filename: true,
+      folder: "math-questions",
+    }
   );
-
-  await questionImage.mv(imagePath);
-
-  res.status(StatusCodes.OK).json({ msg: `/uploads/${questionImage.name}` });
+  fs.unlinkSync(req.files.image.tempFilePath);
+  res.status(StatusCodes.OK).json({ msg: { src: result.secure_url } });
 };
 
 module.exports = {
