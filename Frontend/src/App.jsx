@@ -1,4 +1,5 @@
 import "katex/dist/katex.min.css";
+import "react-toastify/dist/ReactToastify.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   ErrorPage,
@@ -11,7 +12,7 @@ import {
   ApprovedSolution,
 } from "./pages";
 import TopicContent from "./pages/TopicContent";
-// import { useGlobalContext } from "./contex/GlobalContex";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const user = true;
@@ -60,6 +61,7 @@ function App() {
   return (
     <main className="bg-slate-200 min-h-screen">
       <RouterProvider router={router} />
+      <ToastContainer position="top-center" />
     </main>
   );
 }

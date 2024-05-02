@@ -10,9 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.16",
     "axios": "^1.6.8",
     "better-react-mathjax": "^2.0.3",
-    "cloudinary": "^2.2.0",
     "katex": "^0.16.10",
     "mathjax": "^3.2.2",
     "mathjax-react": "^2.0.1",

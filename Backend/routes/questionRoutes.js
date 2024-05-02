@@ -7,10 +7,12 @@ const {
   updateQuestion,
   deleteQuestion,
   uploadImage,
+  uploadSolutionImage,
 } = require("../controllers/questionsControllers");
 
 router.route("/").get(getAllQuestions).post(createQuestion);
 router.route("/uploadImage").post(uploadImage);
+router.route("/uploadSolutionImage").post(uploadSolutionImage);
 router
   .route("/:id")
   .get(getSingleQuestion)

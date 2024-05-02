@@ -2,22 +2,59 @@ import { useParams } from "react-router";
 import ImageContainer from "../components/ImageContainer";
 import MathSolution from "../components/MathSolution";
 import SolutionPreviewer from "../components/SolutionPreviewer";
-import { questions } from "../assets/utils/Questions";
+import { useEffect, useState } from "react";
+// import { questions } from "../assets/utils/Questions";
 import { useGlobalContext } from "../contex/GlobalContex";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
 const QuestionSolution = () => {
   const { id } = useParams();
+  const [question, setQuestion] = useState([]);
   const { steps, setSteps } = useGlobalContext();
-  const question = questions.filter((question) => question.id === id);
+  const navigate = useNavigate();
+
+  const getQuestion = async () => {
+    try {
+      const response = await axios.get(
+        `http://localhost:4000/api/v1/questions/${id}`
+      );
+      setQuestion(response.data.question);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getQuestion();
+  }, []);
+  const { _id, field, image } = question;
+  const hasEmptyContent = steps.some((step) => step.content === "");
+
+  const updateQuestion = async () => {
+    try {
+      const response = await axios.patch(
+        `http://localhost:4000/api/v1/questions/${id}`,
+        {
+          solution: steps,
+          solved: true,
+        }
+      );
+      setQuestion(response.data.question);
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const submitSolution = () => {
-    console.log("solution submitted");
-    // question[0].solution = steps;
-    // question[0].solved = true;
-    // console.log(question);
+    updateQuestion();
+    setSteps([
+      { content: "", isSolution: false },
+      { content: "", isSolution: true },
+    ]);
+    navigate("/solve");
   };
   const skipQuestion = () => {
-    console.log("question skipped");
     setSteps([
       { content: "", isSolution: false },
       { content: "", isSolution: true },
@@ -37,14 +74,22 @@ const QuestionSolution = () => {
         <button
           type="button"
           onClick={submitSolution}
-          className="bg-green-800 text-white px-4 py-1 rounded-xl"
+          className={
+            hasEmptyContent
+              ? "bg-slate-600 text-white px-4 py-1 rounded-xl relative group"
+              : "bg-green-800 text-white px-4 py-1 rounded-xl"
+          }
+          disabled={hasEmptyContent}
         >
           Done
+          <span className="absolute top--10 w-48 right-10 hidden group-hover:block bg-slate-400 text-white text-[12px] px-2 py-1 rounded-md">
+            Solution cannot be submitted with empty step(s).
+          </span>
         </button>
       </div>
       <div className="flex gap-4 px-4">
-        <div className=" flex gap-2 w-full ">
-          <ImageContainer />
+        <div className=" flex gap-2 w-full">
+          <ImageContainer field={field} image={image} id={_id} />
           <MathSolution />
         </div>
         <SolutionPreviewer />

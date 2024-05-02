@@ -7,7 +7,7 @@ const QuestionCard = ({ id, src, field }) => {
       <img
         src={src}
         alt="maths question"
-        className="rounded-t-lg h-64 w-full object-fill"
+        // className="rounded-t-lg h-64 w-full object-contain"
       />
       <div className="flex items-center justify-between px-2 py-4">
         <h4 className="capitalize">field: {field}</h4>

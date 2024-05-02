@@ -57,6 +57,18 @@ const uploadImage = async (req, res) => {
   fs.unlinkSync(req.files.image.tempFilePath);
   res.status(StatusCodes.OK).json({ msg: { src: result.secure_url } });
 };
+const uploadSolutionImage = async (req, res) => {
+  const result = await cloudinary.uploader.upload(
+    req.files.image.tempFilePath,
+    {
+      use_filename: true,
+      folder: "solution-images",
+    }
+  );
+  fs.unlinkSync(req.files.image.tempFilePath);
+  console.log(result.secure_url);
+  res.status(StatusCodes.OK).json({ msg: { src: result.secure_url } });
+};
 
 module.exports = {
   createQuestion,
@@ -65,4 +77,5 @@ module.exports = {
   updateQuestion,
   deleteQuestion,
   uploadImage,
+  uploadSolutionImage,
 };

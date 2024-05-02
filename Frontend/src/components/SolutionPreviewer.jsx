@@ -25,7 +25,9 @@ const SolutionPreviewer = () => {
             <h4 className="uppercase text-gray-400 text-xs font-bold">
               solveXpert solution
             </h4>
-            <div className="text-black my-4">{renderSolutionContent()}</div>
+            <div className="text-black my-4">
+              {renderSolutionContent(steps)}
+            </div>
             <button
               onClick={handleSolutionContent}
               className="bg-red-700 w-[70%] text-white mx-auto my-3 p-3 rounded-full capitalize flex items-center justify-center gap-2"

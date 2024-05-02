@@ -18,8 +18,8 @@ const QuestionSchema = mongoose.Schema(
       default: "uploads/math01.jpeg",
     },
     solution: {
-      type: String,
-      default: "",
+      type: [],
+      default: [],
     },
     solved: {
       type: Boolean,

@@ -1,34 +1,50 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import navLinks from "../assets/utils/Navlinks";
 import { IoHomeOutline } from "react-icons/io5";
 import { BsBell } from "react-icons/bs";
 import { BiUserCircle } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
-// import Sidebar from "./Sidebar";
+import { useGlobalContext } from "../contex/GlobalContex";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
-
-  // const handleSidebar = () => {
-  //   setSidebar(false);
-  // };
+  const { setShow } = useGlobalContext();
+  const handleClick = () => {
+    setShow(false);
+    setSidebar(false);
+  };
 
   return (
     <nav className="bg-white shadow-md h-16 flex items-center">
       <div className="w-11/12 mx-auto flex  items-center justify-between">
         <div>
-          <Link to="/" className="capitalize text-md">
+          <NavLink
+            to="/"
+            className="capitalize text-md"
+            onClick={() => setShow(false)}
+          >
             <IoHomeOutline className="text-2xl" />
-          </Link>
+          </NavLink>
         </div>
         <div className="hidden lg:flex lg:gap-4 ">
           {navLinks.map((navlink) => {
             const { id, name, path } = navlink;
             return (
-              <Link key={id} to={path} className="capitalize text-md">
+              <NavLink
+                key={id}
+                to={path}
+                className={({ isActive }) =>
+                  [
+                    isActive
+                      ? "text-red-700 font-bold capitalize text-lg"
+                      : "hover:text-red-400 capitalize text-lg",
+                  ].join(" ")
+                }
+                onClick={() => setShow(false)}
+              >
                 {name}
-              </Link>
+              </NavLink>
             );
           })}
         </div>
@@ -42,7 +58,7 @@ const Navbar = () => {
           </p>
           <span className="block lg:hidden">
             <RxHamburgerMenu
-              className="text-2xl"
+              className="text-3xl cursor-pointer hover:text-red-700"
               onClick={() => setSidebar(!sidebar)}
             />
           </span>
@@ -64,20 +80,30 @@ const Navbar = () => {
           }
         >
           <div className="absolute top-3 right-5  ">
-            <RxHamburgerMenu size={30} onClick={() => setSidebar(false)} />
+            <RxHamburgerMenu
+              size={30}
+              onClick={() => setSidebar(false)}
+              className="text-3xl cursor-pointer hover:text-red-700"
+            />
           </div>
           <div className="mt-20 flex flex-col justify-center gap-8 text-xl font-[400] px-5 py-3 rounded-lg mx-2">
             {navLinks.map((navlink) => {
               const { id, name, path } = navlink;
               return (
-                <Link
+                <NavLink
                   key={id}
                   to={path}
-                  className="capitalize text-md"
-                  onClick={() => setSidebar(false)}
+                  className={({ isActive }) =>
+                    [
+                      isActive
+                        ? "text-red-700 font-bold capitalize text-lg"
+                        : "hover:text-red-400 capitalize text-lg",
+                    ].join(" ")
+                  }
+                  onClick={handleClick}
                 >
                   {name}
-                </Link>
+                </NavLink>
               );
             })}
           </div>

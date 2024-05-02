@@ -5,6 +5,11 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 
+const helmet = require("helmet");
+const cors = require("cors");
+const xss = require("xss-clean");
+const rateLimiter = require("express-rate-limit");
+
 // connectDB
 const connectDB = require("./db/connect");
 
@@ -28,6 +33,10 @@ const errorHandlerMiddleWare = require("./middleware/error-handler");
 app.use(express.json());
 app.use(express.static("./public"));
 app.use(fileUpload({ useTempFiles: true }));
+//extra packages
+app.use(helmet());
+app.use(cors());
+app.use(xss());
 
 app.get("/", (req, res) => {
   res.send("solveXpert api");
