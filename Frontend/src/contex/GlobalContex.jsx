@@ -31,7 +31,7 @@ const AppContext = ({ children }) => {
     setShow(!show);
   };
   const addStep = () => {
-    const newStep = { content: "", isSolution: false };
+    const newStep = { content: "", isSolution: false, imagePath: "" };
     const updatedSteps = [
       ...steps.slice(0, steps.length - 1),
       newStep,

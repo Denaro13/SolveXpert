@@ -6,6 +6,7 @@ import { BiUserCircle } from "react-icons/bi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { useState } from "react";
 import { useGlobalContext } from "../contex/GlobalContex";
+import { TiTimes } from "react-icons/ti";
 
 const Navbar = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -37,7 +38,7 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   [
                     isActive
-                      ? "text-red-700 font-bold capitalize text-lg"
+                      ? "text-red-700 font-bold capitalize text-lg "
                       : "hover:text-red-400 capitalize text-lg",
                   ].join(" ")
                 }
@@ -64,7 +65,6 @@ const Navbar = () => {
           </span>
         </div>
       </div>
-      {/* <Sidebar sidebar={sidebar} handleSidebar={handleSidebar()} /> */}
       <div
         className={
           sidebar
@@ -80,10 +80,10 @@ const Navbar = () => {
           }
         >
           <div className="absolute top-3 right-5  ">
-            <RxHamburgerMenu
-              size={30}
+            <TiTimes
+              size={50}
               onClick={() => setSidebar(false)}
-              className="text-3xl cursor-pointer hover:text-red-700"
+              className="text-2xl cursor-pointer text-red-700 hover:text-red-500"
             />
           </div>
           <div className="mt-20 flex flex-col justify-center gap-8 text-xl font-[400] px-5 py-3 rounded-lg mx-2">
@@ -96,7 +96,7 @@ const Navbar = () => {
                   className={({ isActive }) =>
                     [
                       isActive
-                        ? "text-red-700 font-bold capitalize text-lg"
+                        ? "text-red-700 font-bold capitalize text-lg "
                         : "hover:text-red-400 capitalize text-lg",
                     ].join(" ")
                   }

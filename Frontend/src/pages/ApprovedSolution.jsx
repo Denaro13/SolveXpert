@@ -1,9 +1,9 @@
 import { useParams } from "react-router";
-
 import StepByStepSolution from "../components/StepByStepSolution";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ImageModal from "../components/ImageModal";
+import { Link } from "react-router-dom";
 
 const ApprovedSolution = () => {
   const [question, setQuestion] = useState();
@@ -26,7 +26,16 @@ const ApprovedSolution = () => {
   }
   const { _id, field, image, solution } = question;
   return (
-    <section className=" h-[calc(100vh-4rem)] pt-10">
+    <section className=" h-[calc(100vh-4rem)] pt-4">
+      <div className="mb-4 pl-4">
+        <Link
+          to="/solution"
+          className="bg-red-700 capitalize text-white px-4 py-2 rounded-xl"
+          // onClick={skipQuestion}
+        >
+          go back
+        </Link>
+      </div>
       <div className="w-[95%] mx-auto flex flex-col md:flex-row gap-4 items-center md:items-start justify-center ">
         <div className=" bg-white w-1/2 h-[50%] p-4">
           <div className="mb-4">

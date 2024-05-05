@@ -45,19 +45,21 @@ const MathSolution = () => {
                     <TiTimes size={30} />
                   </button>
                 )}
-                <label
-                  htmlFor={`file-input-${index}`}
-                  className="flex items-center"
-                >
-                  <input
-                    type="file"
-                    accept="image/*"
-                    id={`file-input-${index}`}
-                    onChange={(e) => handleImageUpload(e, index)}
-                    className="hidden"
-                  />
-                  <RiImageAddFill size={20} className="cursor-pointer" />
-                </label>
+                {step.imagePath === "" && (
+                  <label
+                    htmlFor={`file-input-${index}`}
+                    className="flex items-center"
+                  >
+                    <input
+                      type="file"
+                      accept="image/*"
+                      id={`file-input-${index}`}
+                      onChange={(e) => handleImageUpload(e, index)}
+                      className="hidden"
+                    />
+                    <RiImageAddFill size={20} className="cursor-pointer" />
+                  </label>
+                )}
               </div>
             </div>
             <div>

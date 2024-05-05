@@ -49,15 +49,15 @@ const QuestionSolution = () => {
   const submitSolution = () => {
     updateQuestion();
     setSteps([
-      { content: "", isSolution: false },
-      { content: "", isSolution: true },
+      { content: "", isSolution: false, imagePath: "" },
+      { content: "", isSolution: true, imagePath: "" },
     ]);
     navigate("/solve");
   };
   const skipQuestion = () => {
     setSteps([
-      { content: "", isSolution: false },
-      { content: "", isSolution: true },
+      { content: "", isSolution: false, imagePath: "" },
+      { content: "", isSolution: true, imagePath: "" },
     ]);
   };
 
@@ -66,7 +66,7 @@ const QuestionSolution = () => {
       <div className="bg-blue-200 mb-4 py-2 px-4 flex items-center justify-between">
         <Link
           to="/solve"
-          className="bg-red-700 text-white px-4 py-1 rounded-xl"
+          className="bg-red-700 text-white px-4 py-1 rounded-xl hover:bg-red-600"
           onClick={skipQuestion}
         >
           Skip
@@ -76,8 +76,8 @@ const QuestionSolution = () => {
           onClick={submitSolution}
           className={
             hasEmptyContent
-              ? "bg-slate-600 text-white px-4 py-1 rounded-xl relative group"
-              : "bg-green-800 text-white px-4 py-1 rounded-xl"
+              ? "bg-slate-600 text-white px-4 py-1 rounded-xl relative group "
+              : "bg-green-800 text-white px-4 py-1 rounded-xl hover:bg-green-700"
           }
           disabled={hasEmptyContent}
         >

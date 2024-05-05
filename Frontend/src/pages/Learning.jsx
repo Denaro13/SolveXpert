@@ -1,4 +1,4 @@
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import topics from "../assets/utils/Topics";
 import { contents } from "../assets/utils/data";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -37,16 +37,26 @@ const Learning = () => {
   }
   return (
     <div>
-      <header className="bg-black h-10 pl-4 text-white flex items-center gap-6 overflow-y-hidden">
+      <header className="bg-blue-300 h-10 pl-4 text-white flex items-center gap-6 overflow-y-hidden">
         <button onClick={() => setSidebar(!sidebar)} className="md:hidden">
           <RxHamburgerMenu size={30} />
         </button>
         {topics.map((topic) => {
           const { id, name, path } = topic;
           return (
-            <Link key={id} to={path} className="uppercase ">
+            <NavLink
+              key={id}
+              to={path}
+              className={({ isActive }) =>
+                [
+                  isActive
+                    ? "uppercase text-red-500 font-bold text-lg "
+                    : "hover:text-red-400 uppercase text-lg",
+                ].join(" ")
+              }
+            >
               {name}
-            </Link>
+            </NavLink>
           );
         })}
       </header>

@@ -2,9 +2,10 @@ import QuestionCard from "./QuestionCard";
 // import { questions } from "../assets/utils/Questions";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import LoadingSpinner from "./LoadingSpinner";
 
 const QuestionsList = () => {
-  const [questions, setQuestions] = useState([]);
+  const [questions, setQuestions] = useState(null);
   const getQuestions = async () => {
     try {
       const response = await axios.get(
@@ -20,6 +21,13 @@ const QuestionsList = () => {
   useEffect(() => {
     getQuestions();
   }, []);
+  if (questions === null) {
+    return (
+      <div className="w-[95%] mx-auto mt-8">
+        <LoadingSpinner />
+      </div>
+    );
+  }
 
   const filteredQuestions = questions.filter(
     (question) => question.solved === false

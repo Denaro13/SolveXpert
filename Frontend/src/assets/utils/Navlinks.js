@@ -1,21 +1,16 @@
 export const navLinks = [
   {
     id: 1,
-    name: "training",
-    path: "/training",
-  },
-  {
-    id: 2,
     name: "learning center",
     path: "/learning",
   },
   {
-    id: 3,
+    id: 2,
     name: "provide solution",
     path: "/solve",
   },
   {
-    id: 4,
+    id: 3,
     name: "solution center",
     path: "/solution",
   },
