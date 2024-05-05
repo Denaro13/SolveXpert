@@ -1,4 +1,4 @@
-// import { InlineMath, BlockMath } from "react-katex";
+import "katex/dist/katex.min.css";
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { useGlobalContext } from "../contex/GlobalContex";
 
@@ -50,7 +50,7 @@ const StepByStepSolution = ({ solution }) => {
               solveXpert solution
             </h3>
           </div>
-          <div className="max-h-screen ">
+          <div>
             {solution.map((step, index) => {
               return (
                 <div key={index} className="bg-white mb-4 px-3 py-4">

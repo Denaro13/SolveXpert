@@ -3,11 +3,11 @@ import ImageContainer from "../components/ImageContainer";
 import MathSolution from "../components/MathSolution";
 import SolutionPreviewer from "../components/SolutionPreviewer";
 import { useEffect, useState } from "react";
-// import { questions } from "../assets/utils/Questions";
 import { useGlobalContext } from "../contex/GlobalContex";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const QuestionSolution = () => {
   const { id } = useParams();
@@ -52,6 +52,7 @@ const QuestionSolution = () => {
       { content: "", isSolution: false, imagePath: "" },
       { content: "", isSolution: true, imagePath: "" },
     ]);
+    toast.success("Great! Your solution has been recorded");
     navigate("/solve");
   };
   const skipQuestion = () => {
@@ -62,7 +63,7 @@ const QuestionSolution = () => {
   };
 
   return (
-    <div className="  h-[calc(100vh-20rem)] mx-auto relative">
+    <div className="h-[calc(100vh-4rem)] mx-auto relative overflow-y-hidden">
       <div className="bg-blue-200 mb-4 py-2 px-4 flex items-center justify-between">
         <Link
           to="/solve"

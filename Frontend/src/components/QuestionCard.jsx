@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const QuestionCard = ({ id, src, field }) => {
   return (
-    <article className=" h-auto w-[20rem] bg-white rounded-md">
+    <article className=" h-auto bg-white rounded-md">
       <img
         src={src}
         alt="maths question"

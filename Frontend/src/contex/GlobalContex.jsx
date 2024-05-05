@@ -9,10 +9,6 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const AppContext = ({ children }) => {
-  // const [steps, setSteps] = useState([
-  //   { content: "", isSolution: false },
-  //   { content: "", isSolution: true },
-  // ]);
   const [steps, setSteps] = useState([
     {
       content: "",

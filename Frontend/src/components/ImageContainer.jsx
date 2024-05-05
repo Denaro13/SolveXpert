@@ -8,7 +8,7 @@ const ImageContainer = ({ id, field, image }) => {
         <h4 className="capitalize text-sm">task id : {id}</h4>
       </div>
 
-      <img src={image} alt="question image" className="" />
+      <img src={image} alt="question image" className="w-full" />
       <ImageModal image={image} />
     </div>
   );

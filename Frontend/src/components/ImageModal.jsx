@@ -33,7 +33,7 @@ const ImageModal = ({ image }) => {
         <Box sx={style}>
           <img
             src={image}
-            className="h-full object-fill"
+            className="h-full w-full object-contain"
             alt="question image"
           />
         </Box>

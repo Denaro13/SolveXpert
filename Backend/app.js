@@ -30,6 +30,13 @@ const questionRouter = require("./routes/questionRoutes");
 const notFoundMiddleWare = require("./middleware/not-found");
 const errorHandlerMiddleWare = require("./middleware/error-handler");
 
+app.set("trust proxy", 1);
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000, //15 minutes
+    max: 100, //limit each IP to 100 requests per windowMs
+  })
+);
 app.use(express.json());
 app.use(express.static("./public"));
 app.use(fileUpload({ useTempFiles: true }));

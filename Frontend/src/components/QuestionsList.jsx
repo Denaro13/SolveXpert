@@ -28,20 +28,36 @@ const QuestionsList = () => {
       </div>
     );
   }
+  if (questions.length < 1) {
+    return (
+      <div className="w-[95%] mx-auto mt-8">
+        <h2>
+          Whoops! Looks like we have run out of available math tasks for you.
+        </h2>
+      </div>
+    );
+  }
 
   const filteredQuestions = questions.filter(
     (question) => question.solved === false
   );
   return (
-    <div className="w-[95%] mx-auto mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-      {filteredQuestions.map((question) => {
-        const { _id, field, image } = question;
-        return (
-          <div key={_id} className="mx-auto">
-            <QuestionCard id={_id} field={field} src={image} />
-          </div>
-        );
-      })}
+    <div className="w-[95%] mx-auto mt-8">
+      <div>
+        <h2 className="text-base sm:text-2xl md:text-3xl">
+          Here are a list of available maths task:
+        </h2>
+      </div>
+      <div className="mt-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {filteredQuestions.map((question) => {
+          const { _id, field, image } = question;
+          return (
+            <div key={_id} className="bg-white">
+              <QuestionCard id={_id} field={field} src={image} />
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

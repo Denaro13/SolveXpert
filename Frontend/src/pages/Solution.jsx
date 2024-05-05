@@ -21,17 +21,49 @@ const Solution = () => {
   }, []);
   if (questions === null) {
     return (
-      <div className="w-[95%] mx-auto mt-8">
-        <LoadingSpinner />
-      </div>
+      <section className="mt-8">
+        <div className="w-[95%] mx-auto">
+          <p className="sm:text-xl md:text-2xl mb-4">
+            Making our users understand the core concept of mathematics is our
+            top most priority hence our detailed step-by-step solution.
+          </p>
+        </div>
+        <div className="w-[95%] mx-auto mt-8">
+          <LoadingSpinner />
+        </div>
+      </section>
     );
   }
+
   const solvedQuestions = questions.filter(
     (question) => question.solved === true
   );
+  if (solvedQuestions.length < 1) {
+    return (
+      <section className="mt-8">
+        <div className="w-[65%] mx-auto">
+          <p className="sm:text-xl md:text-2xl mb-4">
+            Making our users understand the core concept of mathematics is our
+            top most priority hence our detailed step-by-step solution.
+          </p>
+        </div>
+        <div className="w-[95%] mx-auto mt-8">
+          <h2>
+            Whoops! Looks like we have run out of available math solution for
+            you yet.
+          </h2>
+        </div>
+      </section>
+    );
+  }
   return (
-    <div>
-      <h1>solution list</h1>
+    <section className="py-8">
+      <div className="w-[95%] mx-auto">
+        <p className="sm:text-xl md:text-2xl mb-4">
+          Making our users understand the core concept of mathematics is our top
+          most priority hence our detailed step-by-step solution.
+        </p>
+      </div>
       <div className="w-[95%] mx-auto mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {solvedQuestions.map((question) => {
           const { _id, field, image } = question;
@@ -55,7 +87,7 @@ const Solution = () => {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 };
 
