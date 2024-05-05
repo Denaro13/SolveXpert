@@ -42,7 +42,13 @@ app.use(express.static("./public"));
 app.use(fileUpload({ useTempFiles: true }));
 //extra packages
 app.use(helmet());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://solvexpert.vercel.app"],
+    methods: ["POST", "GET", "PATCH", "DELETE"],
+    credentials: true,
+  })
+);
 app.use(xss());
 
 app.get("/", (req, res) => {
