@@ -6,6 +6,7 @@ import axios from "axios";
 import ImageModal from "../components/ImageModal";
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../contex/GlobalContex";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 const ApprovedSolution = () => {
   const [question, setQuestion] = useState();
@@ -14,7 +15,7 @@ const ApprovedSolution = () => {
   const getQuestion = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/api/v1/questions/${id}`
+        `https://solvexpert-api.onrender.com/api/v1/questions/${id}`
       );
       setQuestion(response.data.question);
     } catch (error) {
@@ -26,7 +27,11 @@ const ApprovedSolution = () => {
   }, []);
 
   if (!question) {
-    return <h1>Loading...</h1>;
+    return (
+      <section className="h-[calc(100vh-4rem)] py-8 relative overflow-hidden">
+        <LoadingSpinner />
+      </section>
+    );
   }
   const { _id, field, image, solution } = question;
   return (

@@ -65,9 +65,9 @@ const MathSolution = () => {
             <div>
               <textarea
                 rows={4}
-                placeholder={`Enter ${
-                  step.isSolution ? "solution" : "step"
-                } content`}
+                placeholder={
+                  "You can use $ $ for Inline Latex and $$ $$ for Block latex"
+                }
                 value={step.content}
                 onClick={
                   step.isSolution ? () => setShow(false) : () => setShow(true)
