@@ -18,7 +18,7 @@ const QuestionSolution = () => {
   const getQuestion = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:4000/api/v1/questions/${id}`
+        `https://solvexpert-api.onrender.com/api/v1/questions/${id}`
       );
       setQuestion(response.data.question);
     } catch (error) {
@@ -35,7 +35,7 @@ const QuestionSolution = () => {
   const updateQuestion = async () => {
     try {
       const response = await axios.patch(
-        `http://localhost:4000/api/v1/questions/${id}`,
+        `https://solvexpert-api.onrender.com/api/v1/questions/${id}`,
         {
           solution: steps,
           solved: true,

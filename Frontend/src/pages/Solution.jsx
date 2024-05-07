@@ -8,7 +8,7 @@ const Solution = () => {
   const getQuestions = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:4000/api/v1/questions"
+        "https://solvexpert-api.onrender.com/api/v1/questions"
       );
       // console.log(response.data);
       setQuestions(response.data.questions);
