@@ -49,8 +49,7 @@ const Solution = () => {
         </div>
         <div className="w-[95%] mx-auto mt-8">
           <h2>
-            Whoops! Looks like we have run out of available math solution for
-            you yet.
+            Whoops! There is currently no available math solution for you.
           </h2>
         </div>
       </section>
