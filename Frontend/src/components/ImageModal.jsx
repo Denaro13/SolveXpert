@@ -8,14 +8,16 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "95%",
-  height: "50%",
+  width: "75%",
+  height: "75%",
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
   p: 2,
 };
-
+const styleBtn = {
+  fontSize: "10px",
+};
 const ImageModal = ({ image }) => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -23,7 +25,9 @@ const ImageModal = ({ image }) => {
 
   return (
     <div>
-      <Button onClick={handleOpen}>View Question</Button>
+      <Button sx={styleBtn} onClick={handleOpen}>
+        View Question
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -31,11 +35,13 @@ const ImageModal = ({ image }) => {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <img
-            src={image}
-            className="h-full w-full object-contain"
-            alt="question image"
-          />
+          <div className="h-full w-ful flex items-center justify-center">
+            <img
+              src={image}
+              className="h-full w--full object-contain"
+              alt="question image"
+            />
+          </div>
         </Box>
       </Modal>
     </div>

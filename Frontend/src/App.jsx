@@ -10,6 +10,7 @@ import {
   Learning,
   Solution,
   ApprovedSolution,
+  SolvingTips,
 } from "./pages";
 import TopicContent from "./pages/TopicContent";
 import { ToastContainer } from "react-toastify";
@@ -51,6 +52,10 @@ function App() {
               element: <TopicContent />,
             },
           ],
+        },
+        {
+          path: "/solving-tips",
+          element: <SolvingTips />,
         },
       ],
     },

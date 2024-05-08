@@ -30,7 +30,7 @@ const SolutionPreviewer = () => {
             </div>
             <button
               onClick={handleSolutionContent}
-              className="bg-red-700 w-[70%] text-white mx-auto my-3 p-3 rounded-full capitalize flex items-center justify-center gap-2"
+              className="bg-red-700 w-[95%] sm:w-[80%] text-white text-[10px] lg:text-sm mx-auto my-3 p-3 rounded-full capitalize flex items-center justify-center gap-2"
             >
               Show solving steps <BsArrowRight size={20} />
             </button>

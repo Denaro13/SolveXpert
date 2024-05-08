@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 const QuestionSolution = () => {
   const { id } = useParams();
   const [question, setQuestion] = useState([]);
-  const { steps, setSteps } = useGlobalContext();
+  const { steps, setSteps, setShow } = useGlobalContext();
   const navigate = useNavigate();
 
   const getQuestion = async () => {
@@ -60,6 +60,7 @@ const QuestionSolution = () => {
       { content: "", isSolution: false, imagePath: "" },
       { content: "", isSolution: true, imagePath: "" },
     ]);
+    setShow(false);
   };
 
   return (
@@ -95,6 +96,14 @@ const QuestionSolution = () => {
         </div>
         <SolutionPreviewer />
       </div>
+      <Link
+        to="/solving-tips"
+        target="_blank"
+        type="button"
+        className="bg-red-400 fixed bottom-5 left-3 w-[10rem] h-3rem px-2 py-1 font-bold text-white rounded-lg animate-bounce "
+      >
+        Important Tips!!!
+      </Link>
     </div>
   );
 };

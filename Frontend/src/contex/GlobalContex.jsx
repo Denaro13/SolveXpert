@@ -49,7 +49,7 @@ const AppContext = ({ children }) => {
   const uploadSolutionImage = async (formData, index) => {
     try {
       const response = await axios.post(
-        `http://localhost:4000/api/v1/questions/uploadSolutionImage`,
+        `https://solvexpert-api.onrender.com/api/v1/questions/uploadSolutionImage`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

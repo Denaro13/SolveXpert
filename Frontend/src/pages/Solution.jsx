@@ -22,7 +22,7 @@ const Solution = () => {
   if (questions === null) {
     return (
       <section className="mt-8">
-        <div className="w-[95%] mx-auto">
+        <div className="w-[85%] mx-auto">
           <p className="sm:text-xl md:text-2xl mb-4">
             Making our users understand the core concept of mathematics is our
             top most priority hence our detailed step-by-step solution.
@@ -41,7 +41,7 @@ const Solution = () => {
   if (solvedQuestions.length < 1) {
     return (
       <section className="mt-8">
-        <div className="w-[65%] mx-auto">
+        <div className="w-[85%] mx-auto">
           <p className="sm:text-xl md:text-2xl mb-4">
             Making our users understand the core concept of mathematics is our
             top most priority hence our detailed step-by-step solution.
@@ -57,7 +57,7 @@ const Solution = () => {
   }
   return (
     <section className="py-8">
-      <div className="w-[95%] mx-auto">
+      <div className="w-[85%] mx-auto">
         <p className="sm:text-xl md:text-2xl mb-4">
           Making our users understand the core concept of mathematics is our top
           most priority hence our detailed step-by-step solution.

@@ -35,7 +35,7 @@ const ApprovedSolution = () => {
   }
   const { _id, field, image, solution } = question;
   return (
-    <section className="h-[calc(100vh-4rem)] py-8 relative overflow-hidden">
+    <section className="md:h-[calc(100vh-4rem)] py-8 relative overflow-hidden">
       <div className="mb-8 pl-4">
         <Link
           to="/solution"
@@ -46,7 +46,7 @@ const ApprovedSolution = () => {
         </Link>
       </div>
       <div className="w-[95%] mx-auto flex flex-col md:flex-row gap-4 items-center md:items-start justify-center">
-        <div className=" bg-white w-1/2 h-[50%] p-4">
+        <div className=" bg-white w-[95%] sm:w-[80%] md:w-1/2 h-[50%] p-4">
           <div className="mb-4">
             <h1 className="capitalize mb-2">{field} task</h1>
             <h4 className="capitalize text-sm">task id : {_id}</h4>
