@@ -13,7 +13,7 @@ const MathSolution = () => {
     setShow,
   } = useGlobalContext();
   return (
-    <div className=" bg-white w-[60%] h-[calc(100vh-13rem)] overflow-x-hidden pt-2 pb-2 px-3 shadow-xl relative">
+    <div className=" bg-white w-[60%] h-[calc(100vh-13rem)] md:h-[calc(100vh-10rem)] overflow-x-hidden pt-2 pb-2 px-3 shadow-xl relative">
       <div className="bg-gray-200 shadow-md h-10 w-full mx-auto flex items-center px-2 mb-4 rounded-md sticky top-0 z-10">
         <button onClick={addStep}>
           <FiPlusSquare size={30} />

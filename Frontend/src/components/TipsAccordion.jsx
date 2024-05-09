@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const TipsAccordion = () => {
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = React.useState("panel4");
 
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -34,7 +34,7 @@ const TipsAccordion = () => {
               expressions, equations etc.
             </p>
             <p>
-              Not sure hour to write latex? click on the
+              Not sure how to write latex? Click on the
               <a
                 href="https://katex.org/docs/supported"
                 className="text-red-400 "
@@ -66,8 +66,8 @@ const TipsAccordion = () => {
           <Typography>
             <p>
               Inline latex involves mathematical expressions written within the
-              same line as normal. Inline latex can be written on the platform
-              using <span className="font-bold">$ $</span>
+              same line as normal text. Inline latex can be written on the
+              platform using <span className="font-bold">$ $</span>
             </p>
             <p>
               Example: The equation of the line is
@@ -93,8 +93,10 @@ const TipsAccordion = () => {
           <Typography>
             <p>
               Block latex are used to display mathematical expressions on a new
-              line. Block latex can be written on the platform using{" "}
-              <span className="font-bold">$$ $$</span>
+              line. Block latex can be written on the platform using
+              <span className="font-bold"> $$ $$</span>
+              <br />
+              When writing block latex always ensure to start on a new line.
             </p>
             <p>
               Example: The equation of the line is: <br />
@@ -123,11 +125,14 @@ const TipsAccordion = () => {
             <p>
               Images are important when making visual presentation to explain
               maths concepts. It is important to first upload an image before
-              explaining the concepts from the image.
-            </p>
-            <p>
+              explaining the concepts from the image. <br />
               Kindly try and ensure you remove white spaces created when an
               image is uploaded.
+            </p>
+            <p className="text-red-500">
+              <span className="font-bold text-lg">Important!</span>: Whenever
+              you upload an image and you intend to delete the image simply just
+              remove the entire step!!!
             </p>
           </Typography>
         </AccordionDetails>
