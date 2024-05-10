@@ -55,7 +55,7 @@ const AppContext = ({ children }) => {
           headers: { "Content-Type": "multipart/form-data" },
         }
       );
-      if (response.statusText === "OK") {
+      if (response.status === 200) {
         const src = response.data.msg.src;
         const updatedSteps = [...steps];
         updatedSteps[index].imagePath = src;

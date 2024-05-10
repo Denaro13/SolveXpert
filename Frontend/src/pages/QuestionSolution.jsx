@@ -73,8 +73,8 @@ const QuestionSolution = () => {
         >
           Skip
         </Link>
-        <button
-          type="button"
+        <Link
+          to="/solve"
           onClick={submitSolution}
           className={
             hasEmptyContent
@@ -87,7 +87,7 @@ const QuestionSolution = () => {
           <span className="absolute top--10 w-48 right-10 hidden group-hover:block bg-slate-400 text-white text-[12px] px-2 py-1 rounded-md">
             Solution cannot be submitted with empty step(s).
           </span>
-        </button>
+        </Link>
       </div>
       <div className="flex gap-4 px-4">
         <div className=" flex gap-2 w-full">
