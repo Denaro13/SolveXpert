@@ -68,7 +68,7 @@ const StepByStepSolution = ({ solution }) => {
                       <img
                         src={step.imagePath}
                         alt="image"
-                        className="h-[20rem] w-full object-cover"
+                        className="h-[20rem] w-full object-contain"
                       />
                     )}
                     {renderApprovedStepContent(step)}
