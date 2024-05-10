@@ -48,12 +48,12 @@ const QuestionSolution = () => {
   };
   const submitSolution = () => {
     updateQuestion();
+    toast.success("Great! Your solution has been recorded");
+    navigate("/solve");
     setSteps([
       { content: "", isSolution: false, imagePath: "" },
       { content: "", isSolution: true, imagePath: "" },
     ]);
-    toast.success("Great! Your solution has been recorded");
-    navigate("/solve");
   };
   const skipQuestion = () => {
     setSteps([

@@ -21,6 +21,7 @@ const QuestionsList = () => {
   useEffect(() => {
     getQuestions();
   }, []);
+
   if (questions === null) {
     return (
       <div className="w-[95%] mx-auto mt-8">
@@ -28,7 +29,10 @@ const QuestionsList = () => {
       </div>
     );
   }
-  if (questions.length < 1) {
+  const filteredQuestions = questions.filter(
+    (question) => question.solved === false
+  );
+  if (filteredQuestions.length < 1) {
     return (
       <div className="w-[95%] mx-auto mt-8">
         <h2>
@@ -38,9 +42,6 @@ const QuestionsList = () => {
     );
   }
 
-  const filteredQuestions = questions.filter(
-    (question) => question.solved === false
-  );
   return (
     <div className="w-[95%] mx-auto mt-8">
       <div>
